@@ -9,14 +9,28 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.adamakchi.SmartDT",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "config": {
+        "usesNonExemptEncryption": false,
+        "googleMapsApiKey": "AIzaSyD7sMspd0N2BJavyXW6TibJtnrdxKXi7Ms"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.adamakchi.SmartDT",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD7sMspd0N2BJavyXW6TibJtnrdxKXi7Ms"
+        }
+      }
     },
     "web": {
       "bundler": "metro",
@@ -33,10 +47,17 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "37fc8049-7959-4980-a7cb-8223a3b3b2fe"
+      }
     }
   }
 }

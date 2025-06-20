@@ -1,8 +1,8 @@
-import { View, ScrollView, StyleSheet, ActivityIndicator, Text } from 'react-native';
-import React, { useState, useEffect } from 'react';
 import HotelCard from '@/components/HotelCard';
 import { HotelsAPI } from '@/src/api';
-import { useNavigation } from '@react-navigation/native';
+import { useRouter } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 interface Hotel {
   id: number;
@@ -13,7 +13,7 @@ interface Hotel {
 }
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const router = useRouter();
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -65,7 +65,7 @@ const HomeScreen = () => {
               rating={rating}
               imageUrl={hotel.images?.[0]?.link}
               features={[`${hotel.nbBeds} beds`]}
-              onPress={() => navigation.navigate('hotel', { id: hotel.id })}
+              onPress={() => router.push(`/(hotel)/${hotel.id}`)}
             />
           );
         })}
